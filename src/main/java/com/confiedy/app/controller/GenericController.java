@@ -1,8 +1,10 @@
 package com.confiedy.app.controller;
 import com.confiedy.app.dto.DocenteDto;
 import com.confiedy.app.dto.CursoPorUniversidadDto;
+import com.confiedy.app.dto.UniversidadDto;
 import com.confiedy.app.service.CursoService;
 import com.confiedy.app.service.DocenteService;
+import com.confiedy.app.service.UniversidadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +18,15 @@ import java.util.logging.Logger;
 public class GenericController {
     private final CursoService cursoService;
     private final DocenteService docenteService;
+    private final UniversidadService universidadService;
     private static final Logger log = Logger.getLogger(GenericController.class.getName());
     @Autowired
-    public GenericController(final CursoService cursoService, final DocenteService docenteService) {
+    public GenericController(final CursoService cursoService,
+                             final DocenteService docenteService,
+                             final UniversidadService universidadService) {
         this.cursoService = cursoService;
         this.docenteService = docenteService;
+        this.universidadService = universidadService;
     }
 
     @GetMapping(value="docente/curso/{id}")
@@ -37,10 +43,21 @@ public class GenericController {
     }
 
     @GetMapping(value="docente")
-    public ResponseEntity<List<DocenteDto>> getAll(){
+    public ResponseEntity<List<DocenteDto>> getAllDocentes(){
         try {
             List<DocenteDto> cursoDtoList = docenteService.getAll();
             return ResponseEntity.ok(cursoDtoList);
+        } catch (Exception e){
+            log.info("Exception en: "+e.getMessage());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping(value="universidad")
+    public ResponseEntity<List<UniversidadDto>> getAllUniversidades(){
+        try {
+            List<UniversidadDto> universidadDtos = universidadService.getAll();
+            return ResponseEntity.ok(universidadDtos);
         } catch (Exception e){
             log.info("Exception en: "+e.getMessage());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

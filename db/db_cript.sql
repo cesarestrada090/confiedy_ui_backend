@@ -17,7 +17,7 @@ CREATE TABLE curso (
     maximo_estudiantes varchar(50),
     universidad_id INT,
     estado INT,
-    FOREIGN KEY (universidad_id) REFERENCES universidades(id)
+    FOREIGN KEY (universidad_id) REFERENCES universidad(id)
 );
 
 -- Crear la tabla para docentes
