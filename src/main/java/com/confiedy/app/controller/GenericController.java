@@ -1,6 +1,7 @@
 package com.confiedy.app.controller;
 import com.confiedy.app.dto.DocenteDto;
 import com.confiedy.app.dto.CursoPorUniversidadDto;
+import com.confiedy.app.dto.DocentePorCursoDto;
 import com.confiedy.app.dto.UniversidadDto;
 import com.confiedy.app.service.CursoService;
 import com.confiedy.app.service.DocenteService;
@@ -30,16 +31,16 @@ public class GenericController {
     }
 
     @GetMapping(value="docente/curso/{id}")
-    public ResponseEntity<List<CursoPorUniversidadDto>> getDocentesPorCurso(
+    public ResponseEntity<List<DocentePorCursoDto>> getDocentesPorCurso(
             @PathVariable(name = "id") Integer id){
-        List<CursoPorUniversidadDto> cursoPorUniversidadDtos;
+        List<DocentePorCursoDto> docentePorCursoDtos;
         try {
-            cursoPorUniversidadDtos = cursoService.getCursosPorUniversidad(id);
+            docentePorCursoDtos = docenteService.getDocentesByCurso(id);
         } catch (Exception e){
             log.info("Excepcion en: "+e.getMessage());
             return new ResponseEntity<>(HttpStatus.OK);
         }
-        return new ResponseEntity<>(cursoPorUniversidadDtos, HttpStatus.OK);
+        return new ResponseEntity<>(docentePorCursoDtos, HttpStatus.OK);
     }
 
     @GetMapping(value="docente")

@@ -65,19 +65,19 @@ VALUES(200,"1","MATECO01", "Este curso abarca los siguientes temas: sistema de n
 -- DOCENTES
 
 INSERT INTO confiedy_ui.docente
-(id,nombre, imagenPerfil, numero_estrellas, horas_dictadas)
+(id,nombre, imagen_perfil, numero_estrellas, horas_dictadas)
 VALUES(1,'Juan Carlos Minaya', 'https://www.confiedy.com/images/juan_minaya.jpeg', 4, 50);
 
 INSERT INTO confiedy_ui.docente
-(id,nombre, imagenPerfil, numero_estrellas, horas_dictadas)
+(id,nombre, imagen_perfil, numero_estrellas, horas_dictadas)
 VALUES(2,'Gino Bonilla', 'https://www.confiedy.com/images/gino.jpeg', 5, 80);
 
 INSERT INTO confiedy_ui.docente
-(id,nombre, imagenPerfil, numero_estrellas, horas_dictadas)
+(id,nombre, imagen_perfil, numero_estrellas, horas_dictadas)
 VALUES(3,'Giovani Morales', 'https://www.confiedy.com/images/giovanni.jpeg', 4, 50);
 
 INSERT INTO confiedy_ui.docente
-(id,nombre, imagenPerfil, numero_estrellas, horas_dictadas)
+(id,nombre, imagen_perfil, numero_estrellas, horas_dictadas)
 VALUES(4,'Aarón Diaz', 'https://www.confiedy.com/images/aaron_diaz.jpeg', 4, 60);
 
 

@@ -27,8 +27,10 @@ public class CursoServiceImpl implements CursoService {
         for (Curso c: cursos){
             CursoPorUniversidadDto cursoPorUniversidadDto = new CursoPorUniversidadDto();
             cursoPorUniversidadDto.setCurso(c.getNombre());
+            cursoPorUniversidadDto.setId(c.getId());
             cursoPorUniversidadDto.setCodigoCurso(c.getCodigo());
             cursoPorUniversidadDto.setCiclo(c.getCiclo());
+            cursoPorUniversidadDto.setUniversidadId(c.getUniversidad().getId());
             cursoPorUniversidadDto.setImagenCurso(c.getImagenCurso());
             cursoPorUniversidadDto.setNombreUniversidad(c.getUniversidad().getNombre());
             cursoPorUniversidadDto.setDuracion(c.getDuracion());

@@ -8,7 +8,7 @@ CREATE TABLE universidad (
 -- Crear la tabla para cursos
 CREATE TABLE curso (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    codigo_curso VARCHAR(255) NOT NULL,
+    codigo VARCHAR(255) NOT NULL,
     nombre VARCHAR(255) NOT NULL,
     descripcion VARCHAR(2255) NOT NULL,
     imagen_curso VARCHAR(255) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE curso (
 CREATE TABLE docente (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
-    imagenPerfil VARCHAR(255) NOT NULL,
+    imagen_perfil VARCHAR(255) NOT NULL,
     numero_estrellas INT,
     horas_dictadas INT
 );
@@ -38,4 +38,3 @@ CREATE TABLE docente_curso (
     FOREIGN KEY (docente_id) REFERENCES docente(id),
     FOREIGN KEY (curso_id) REFERENCES curso(id)
 );
-
