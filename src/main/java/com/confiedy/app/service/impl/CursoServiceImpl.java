@@ -41,4 +41,26 @@ public class CursoServiceImpl implements CursoService {
         }
         return cursoPorUniversidadList;
     }
+
+    @Override
+    public List<CursoPorUniversidadDto> getAllCursos() {
+        List<Curso> cursos = cursoRepository.findAll();
+        List<CursoPorUniversidadDto> cursoPorUniversidadList= new ArrayList<>();
+        for (Curso c: cursos){
+            CursoPorUniversidadDto cursoPorUniversidadDto = new CursoPorUniversidadDto();
+            cursoPorUniversidadDto.setCurso(c.getNombre());
+            cursoPorUniversidadDto.setId(c.getId());
+            cursoPorUniversidadDto.setCodigoCurso(c.getCodigo());
+            cursoPorUniversidadDto.setCiclo(c.getCiclo());
+            cursoPorUniversidadDto.setUniversidadId(c.getUniversidad().getId());
+            cursoPorUniversidadDto.setImagenCurso(c.getImagenCurso());
+            cursoPorUniversidadDto.setNombreUniversidad(c.getUniversidad().getNombre());
+            cursoPorUniversidadDto.setDuracion(c.getDuracion());
+            cursoPorUniversidadDto.setCiclo(c.getCiclo());
+            cursoPorUniversidadDto.setDescripcion(c.getDescripcion());
+            cursoPorUniversidadDto.setMaximoEstudiantes(c.getMaximoEstudiantes());
+            cursoPorUniversidadList.add(cursoPorUniversidadDto);
+        }
+        return cursoPorUniversidadList;
+    }
 }

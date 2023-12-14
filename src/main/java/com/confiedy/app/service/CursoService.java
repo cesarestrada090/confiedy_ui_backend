@@ -10,4 +10,6 @@ import java.util.List;
 public interface CursoService {
     List<CursoPorUniversidadDto> getCursosPorUniversidad(Integer universidadId);
 
+    List<CursoPorUniversidadDto> getAllCursos();
+
 }

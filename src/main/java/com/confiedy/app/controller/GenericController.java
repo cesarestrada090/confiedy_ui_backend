@@ -75,4 +75,15 @@ public class GenericController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping(value="curso")
+    public ResponseEntity<List<CursoPorUniversidadDto>> getAllCursos(){
+        try {
+            List<CursoPorUniversidadDto> cursoPorUniversidadDtos = cursoService.getAllCursos();
+            return ResponseEntity.ok(cursoPorUniversidadDtos);
+        } catch (Exception e){
+            log.info("Exception en: "+e.getMessage());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
