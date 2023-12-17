@@ -14,6 +14,11 @@ public class Docente {
     @Size(max = 145)
     @Column(name = "nombre", length = 45)
     private String nombre;
+
+    @Size(max = 145)
+    @Column(name = "descripcion", length = 45)
+    private String descripcion;
+
     @Size(max = 145)
     @Column(name = "imagen_perfil", length = 45)
     private String imagenPerfil;
@@ -61,5 +66,13 @@ public class Docente {
 
     public void setHorasDictadas(Integer horasDictadas) {
         this.horasDictadas = horasDictadas;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

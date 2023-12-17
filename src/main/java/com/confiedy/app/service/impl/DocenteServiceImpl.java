@@ -44,6 +44,7 @@ public class DocenteServiceImpl implements DocenteService {
             docentePorCursoDto.setCurso(c.getNombre());
             docentePorCursoDto.setDocenteId(d.getId());
             docentePorCursoDto.setId(d.getId());
+            docentePorCursoDto.setDescripcion(d.getDescripcion());
             docentePorCursoDto.setCursoId(c.getId());
             docentePorCursoDto.setDocente(d.getNombre());
             docentePorCursoDto.setImagenPerfil(d.getImagenPerfil());
