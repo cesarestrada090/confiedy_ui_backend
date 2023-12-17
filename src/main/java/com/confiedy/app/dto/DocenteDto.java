@@ -2,9 +2,6 @@ package com.confiedy.app.dto;
 
 import java.io.Serializable;
 
-/**
- * DTO for {@link Usuario}
- */
 public class DocenteDto implements Serializable {
     private Integer id;
     private Integer docenteId;
@@ -13,6 +10,7 @@ public class DocenteDto implements Serializable {
     private String imagenPerfil;
     private String imagenPerfilMenor;
     private Integer numeroEstrellas;
+    private Integer numeroCalificaciones;
     private Integer numeroHorasDictadas;
     public DocenteDto() {
     }
@@ -79,5 +77,13 @@ public class DocenteDto implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Integer getNumeroCalificaciones() {
+        return numeroCalificaciones;
+    }
+
+    public void setNumeroCalificaciones(Integer numeroCalificaciones) {
+        this.numeroCalificaciones = numeroCalificaciones;
     }
 }

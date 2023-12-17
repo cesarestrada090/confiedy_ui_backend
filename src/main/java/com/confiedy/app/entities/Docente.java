@@ -27,6 +27,8 @@ public class Docente {
 
     @Column(name = "horas_dictadas", nullable = false)
     private Integer horasDictadas;
+    @Column(name = "numero_calificaciones", nullable = false)
+    private Integer numeroCalificaciones;
 
     public Integer getId() {
         return id;
@@ -74,5 +76,13 @@ public class Docente {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Integer getNumeroCalificaciones() {
+        return numeroCalificaciones;
+    }
+
+    public void setNumeroCalificaciones(Integer numeroCalificaciones) {
+        this.numeroCalificaciones = numeroCalificaciones;
     }
 }

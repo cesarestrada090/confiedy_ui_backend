@@ -13,6 +13,7 @@ public class DocentePorCursoDto implements Serializable {
     private String descripcion;
     private Integer numeroEstrellas;
     private Integer numeroHorasDictadas;
+    private Integer numeroCalificaciones;
     private Integer cursoId;
     private String curso;
     public DocentePorCursoDto() {
@@ -88,5 +89,13 @@ public class DocentePorCursoDto implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Integer getNumeroCalificaciones() {
+        return numeroCalificaciones;
+    }
+
+    public void setNumeroCalificaciones(Integer numeroCalificaciones) {
+        this.numeroCalificaciones = numeroCalificaciones;
     }
 }
