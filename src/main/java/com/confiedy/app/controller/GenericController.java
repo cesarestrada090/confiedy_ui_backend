@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @RestController
-@RequestMapping("aulaVirtual/app")
+@RequestMapping("/app")
 public class GenericController {
     private final CursoService cursoService;
     private final DocenteService docenteService;
