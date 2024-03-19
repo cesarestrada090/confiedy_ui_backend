@@ -13,9 +13,9 @@ public class Tarea {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Size(max = 145)
+    @Size(max = 225)
     @Column(name = "descripcion", length = 225)
-    private String nombre;
+    private String descripcion;
 
     @Size(max = 145)
     @Column(name = "tipo", length = 45)
@@ -29,12 +29,12 @@ public class Tarea {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getTipo() {

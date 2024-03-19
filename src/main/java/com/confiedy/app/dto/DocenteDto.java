@@ -1,6 +1,7 @@
 package com.confiedy.app.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class DocenteDto implements Serializable {
     private Integer id;
@@ -12,6 +13,8 @@ public class DocenteDto implements Serializable {
     private Integer numeroEstrellas;
     private Integer numeroCalificaciones;
     private Integer numeroHorasDictadas;
+    private List<TareaDto> tareas;
+
     public DocenteDto() {
     }
 
@@ -85,5 +88,13 @@ public class DocenteDto implements Serializable {
 
     public void setNumeroCalificaciones(Integer numeroCalificaciones) {
         this.numeroCalificaciones = numeroCalificaciones;
+    }
+
+    public List<TareaDto> getTareas() {
+        return tareas;
+    }
+
+    public void setTareas(List<TareaDto> tareas) {
+        this.tareas = tareas;
     }
 }

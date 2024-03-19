@@ -2,10 +2,13 @@ package com.confiedy.app.service.impl;
 
 import com.confiedy.app.dto.DocenteDto;
 import com.confiedy.app.dto.DocentePorCursoDto;
+import com.confiedy.app.dto.TareaDto;
 import com.confiedy.app.entities.Curso;
 import com.confiedy.app.entities.Docente;
+import com.confiedy.app.entities.Tarea;
 import com.confiedy.app.repository.CursoRepository;
 import com.confiedy.app.repository.DocenteRepository;
+import com.confiedy.app.repository.TareaRepository;
 import com.confiedy.app.service.DocenteService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +23,14 @@ public class DocenteServiceImpl implements DocenteService {
 
     private final DocenteRepository docenteRepository;
     private final CursoRepository cursoRepository;
+    private final TareaRepository tareaRepository;
     private final ModelMapper mapper;
 
     @Autowired
-    public DocenteServiceImpl(final DocenteRepository docenteRepository, final ModelMapper mapper, final CursoRepository cursoRepository) {
+    public DocenteServiceImpl(final DocenteRepository docenteRepository, final ModelMapper mapper, final CursoRepository cursoRepository,final TareaRepository tareaRepository) {
         this.docenteRepository = docenteRepository;
         this.cursoRepository = cursoRepository;
+        this.tareaRepository = tareaRepository;
         this.mapper = mapper;
     }
 
@@ -40,6 +45,7 @@ public class DocenteServiceImpl implements DocenteService {
         Curso c = cursoRepository.getReferenceById(cursoId);
         List<DocentePorCursoDto> docentePorCursoDtoList = new ArrayList<>();
         for (Docente d: docenteCursoList){
+            List<TareaDto> tareaDtoList = new ArrayList<>();
             DocentePorCursoDto docentePorCursoDto = new DocentePorCursoDto();
             docentePorCursoDto.setCurso(c.getNombre());
             docentePorCursoDto.setDocenteId(d.getId());
@@ -51,6 +57,13 @@ public class DocenteServiceImpl implements DocenteService {
             docentePorCursoDto.setImagenPerfil(d.getImagenPerfil());
             docentePorCursoDto.setNumeroEstrellas(d.getNumeroEstrellas());
             docentePorCursoDto.setNumeroHorasDictadas(d.getHorasDictadas());
+            List<Tarea> tareas = tareaRepository.findTareasByDocente(docentePorCursoDto.getDocenteId());
+            for (Tarea t: tareas){
+                TareaDto tareaDto = new TareaDto();
+                tareaDto.setDescripcion(t.getDescripcion());
+                tareaDtoList.add(tareaDto);
+            }
+            docentePorCursoDto.setTareas(tareaDtoList);
             docentePorCursoDtoList.add(docentePorCursoDto);
         }
         return docentePorCursoDtoList;

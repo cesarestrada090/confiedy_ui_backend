@@ -1,6 +1,7 @@
 package com.confiedy.app.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * DTO for {@link Usuario}
@@ -16,6 +17,7 @@ public class DocentePorCursoDto implements Serializable {
     private Integer numeroCalificaciones;
     private Integer cursoId;
     private String curso;
+    private List<TareaDto> tareas;
     public DocentePorCursoDto() {
     }
 
@@ -97,5 +99,13 @@ public class DocentePorCursoDto implements Serializable {
 
     public void setNumeroCalificaciones(Integer numeroCalificaciones) {
         this.numeroCalificaciones = numeroCalificaciones;
+    }
+
+    public List<TareaDto> getTareas() {
+        return tareas;
+    }
+
+    public void setTareas(List<TareaDto> tareas) {
+        this.tareas = tareas;
     }
 }
