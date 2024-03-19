@@ -10,12 +10,12 @@ public class DocenteTarea {
 
     @MapsId("tareaId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "tarea_id", nullable = false)
+    @JoinColumn(name = "id_tarea", nullable = false)
     private Tarea tarea;
 
     @MapsId("docenteId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "docente_id", nullable = false)
+    @JoinColumn(name = "id_docente", nullable = false)
     private Docente docente;
 
     public DocenteTarea() {

@@ -8,10 +8,10 @@ import java.io.Serializable;
 @Embeddable
 public class DocenteTareaId implements Serializable {
     private static final long serialVersionUID = 1605247810173684734L;
-    @Column(name = "docente_id", nullable = false)
+    @Column(name = "id_docente", nullable = false)
     private Integer docenteId;
 
-    @Column(name = "tarea_id", nullable = false)
+    @Column(name = "id_tarea", nullable = false)
     private Integer tareaId;
 
     public DocenteTareaId() {
